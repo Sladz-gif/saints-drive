@@ -1,6 +1,17 @@
 import { useState, useEffect } from "react";
 import { Link, useRouterState } from "@tanstack/react-router";
-import { Menu, X, Search, Heart, User, ChevronDown, Circle } from "lucide-react";
+import {
+  Menu,
+  X,
+  Search,
+  Heart,
+  User,
+  ChevronDown,
+  Circle,
+  Instagram,
+  Youtube,
+  MessageCircle,
+} from "lucide-react";
 import { AuthModal } from "./AuthModal";
 
 const NAV = [
@@ -14,16 +25,18 @@ const NAV = [
 const MEGA = {
   DISCOVER: [
     { label: "Cars by Purpose", to: "/purpose/uber-bolt" },
-    { label: "History Vault", to: "/history" },
-    { label: "Legendary Engines", to: "/history" },
+    { label: "Brand Showcase", to: "/brands/bmw" },
+    { label: "Automotive Knowledge Vault", to: "/vault" },
+    { label: "Legendary Engines", to: "/vault" },
   ],
   TOOLS: [
-    { label: "Profit Calculator", to: "/purpose/uber-bolt" },
-    { label: "Compare Cars", to: "/buy" },
-    { label: "Fleet Manager", to: "/fleet" },
+    { label: "Fuel Cost Calculator", to: "/purpose/uber-bolt" },
+    { label: "Compare Vehicles", to: "/buy" },
+    { label: "Profitability Estimator", to: "/purpose/uber-bolt" },
+    { label: "Fleet Management", to: "/fleet" },
   ],
   PLAY: [
-    { label: "Guess the Car", to: "/games/guess-the-car" },
+    { label: "Guess the Car Game", to: "/games/guess-the-car" },
     { label: "Engine Sound Challenge", to: "/games/engine-sound" },
   ],
 } as const;
@@ -42,7 +55,10 @@ export function Navbar({ transparentOverHero = false }: { transparentOverHero?: 
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
 
-  useEffect(() => { setMobileOpen(false); setMegaOpen(false); }, [pathname]);
+  useEffect(() => {
+    setMobileOpen(false);
+    setMegaOpen(false);
+  }, [pathname]);
 
   const solid = scrolled || !transparentOverHero;
 
@@ -78,17 +94,32 @@ export function Navbar({ transparentOverHero = false }: { transparentOverHero?: 
           </nav>
 
           <div className="flex items-center gap-1">
-            <button className="hidden md:inline-flex h-9 w-9 items-center justify-center rounded text-foreground/80 hover:text-foreground hover:bg-card transition-colors" aria-label="Search">
+            <Link
+              to="/blog"
+              className="hidden lg:inline-flex px-3 py-2 text-sm font-medium text-foreground/80 hover:text-foreground transition-colors"
+            >
+              Blog
+            </Link>
+            <button
+              className="hidden md:inline-flex h-9 w-9 items-center justify-center rounded text-foreground/80 hover:text-foreground hover:bg-card transition-colors"
+              aria-label="Search"
+            >
               <Search className="w-4 h-4" />
             </button>
-            <button onClick={() => setAuthOpen(true)} className="hidden md:inline-flex h-9 w-9 items-center justify-center rounded text-foreground/80 hover:text-foreground hover:bg-card transition-colors" aria-label="Saved">
+            <button
+              onClick={() => setAuthOpen(true)}
+              className="hidden md:inline-flex h-9 w-9 items-center justify-center rounded text-foreground/80 hover:text-foreground hover:bg-card transition-colors relative"
+              aria-label="Saved"
+            >
               <Heart className="w-4 h-4" />
+              <span className="absolute top-1 right-1 w-2 h-2 bg-primary rounded-full" />
             </button>
-            <Link to="/account" className="hidden md:inline-flex h-9 w-9 items-center justify-center rounded text-foreground/80 hover:text-foreground hover:bg-card transition-colors" aria-label="Account">
+            <Link
+              to="/account"
+              className="hidden md:inline-flex h-9 w-9 items-center justify-center rounded text-foreground/80 hover:text-foreground hover:bg-card transition-colors"
+              aria-label="Account"
+            >
               <User className="w-4 h-4" />
-            </Link>
-            <Link to="/sell" className="hidden md:inline-flex items-center h-9 px-4 bg-primary hover:bg-primary-dim text-primary-foreground text-xs font-mono uppercase tracking-wider transition-colors">
-              List Your Car
             </Link>
             <button
               onClick={() => setMobileOpen(true)}
@@ -101,14 +132,18 @@ export function Navbar({ transparentOverHero = false }: { transparentOverHero?: 
         </div>
 
         {megaOpen && (
-          <div className="hidden lg:block absolute left-0 right-0 top-16 bg-card border-b-2 border-primary animate-fade-in">
-            <div className="container-x grid grid-cols-3 gap-12 py-10">
+          <div className="hidden lg:block absolute left-0 right-0 top-16 bg-card border-b-2 border-primary animate-fade-in overflow-x-hidden">
+            <div className="container-x grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 py-10">
               {(Object.keys(MEGA) as Array<keyof typeof MEGA>).map((cat) => (
-                <div key={cat}>
+                <div key={cat} className="min-w-0">
                   <div className="overline mb-4">{cat}</div>
                   <div className="space-y-2.5">
                     {MEGA[cat].map((item) => (
-                      <Link key={item.to} to={item.to} className="block text-base text-foreground/85 hover:text-primary transition-colors">
+                      <Link
+                        key={item.to}
+                        to={item.to}
+                        className="block text-base text-foreground/85 hover:text-primary transition-colors truncate"
+                      >
                         {item.label}
                       </Link>
                     ))}
@@ -121,25 +156,62 @@ export function Navbar({ transparentOverHero = false }: { transparentOverHero?: 
       </header>
 
       {mobileOpen && (
-        <div className="fixed inset-0 z-[60] bg-background animate-fade-in lg:hidden">
+        <div className="fixed inset-0 z-[60] bg-background animate-fade-in lg:hidden flex flex-col">
           <div className="flex items-center justify-between h-16 container-x">
-            <Link to="/" className="font-display text-2xl tracking-wider">SAINTS GARAGE</Link>
-            <button onClick={() => setMobileOpen(false)} className="h-10 w-10 inline-flex items-center justify-center" aria-label="Close">
+            <Link to="/" className="font-display text-2xl tracking-wider">
+              SAINTS GARAGE
+            </Link>
+            <button
+              onClick={() => setMobileOpen(false)}
+              className="h-10 w-10 inline-flex items-center justify-center"
+              aria-label="Close"
+            >
               <X className="w-5 h-5" />
             </button>
           </div>
-          <div className="container-x mt-10 space-y-1">
+          <div className="flex-1 container-x mt-10 space-y-1 overflow-y-auto">
             {NAV.map((item) => (
-              <Link key={item.to} to={item.to} className="block py-4 font-display text-4xl tracking-wider hairline-b">
+              <Link
+                key={item.to}
+                to={item.to}
+                className="block py-4 font-display text-5xl tracking-wider hairline-b active:text-primary transition-colors"
+                activeProps={{
+                  className:
+                    "block py-4 font-display text-5xl tracking-wider hairline-b text-primary",
+                }}
+              >
                 {item.label}
               </Link>
             ))}
-            <Link to="/history" className="block py-4 font-display text-4xl tracking-wider hairline-b">History</Link>
-            <Link to="/games" className="block py-4 font-display text-4xl tracking-wider hairline-b">Games</Link>
-            <Link to="/account" className="block py-4 font-display text-4xl tracking-wider hairline-b">Account</Link>
-            <Link to="/sell" className="mt-8 inline-flex items-center justify-center h-12 px-6 bg-primary text-primary-foreground font-mono uppercase tracking-wider text-sm w-full">
-              List Your Car
+            <Link
+              to="/history"
+              className="block py-4 font-display text-5xl tracking-wider hairline-b"
+            >
+              History
             </Link>
+            <Link
+              to="/games"
+              className="block py-4 font-display text-5xl tracking-wider hairline-b"
+            >
+              Games
+            </Link>
+            <Link
+              to="/account"
+              className="block py-4 font-display text-5xl tracking-wider hairline-b"
+            >
+              Account
+            </Link>
+          </div>
+          <div className="p-10 border-t border-border flex items-center justify-center gap-6">
+            <a href="#" className="text-muted-foreground hover:text-primary transition-colors">
+              <Instagram className="w-6 h-6" />
+            </a>
+            <a href="#" className="text-muted-foreground hover:text-primary transition-colors">
+              <Youtube className="w-6 h-6" />
+            </a>
+            <a href="#" className="text-muted-foreground hover:text-primary transition-colors">
+              <MessageCircle className="w-6 h-6" />
+            </a>
           </div>
         </div>
       )}

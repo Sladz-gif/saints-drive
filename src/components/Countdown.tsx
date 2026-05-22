@@ -24,7 +24,9 @@ export function Countdown({ endsAt, compact = false }: { endsAt: number; compact
   const Unit = ({ value, label }: { value: string; label: string }) => (
     <div className="flex flex-col items-center">
       <span className="font-mono text-3xl md:text-5xl tabular-nums text-foreground">{value}</span>
-      <span className="text-[10px] font-mono uppercase tracking-widest text-muted-foreground mt-1">{label}</span>
+      <span className="text-[10px] font-mono uppercase tracking-widest text-muted-foreground mt-1">
+        {label}
+      </span>
     </div>
   );
 

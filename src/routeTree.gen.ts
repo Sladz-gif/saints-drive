@@ -9,7 +9,7 @@
 // Additionally, you should also exclude this file from your linter and/or formatter to prevent it from being checked or modified.
 
 import { Route as rootRouteImport } from './routes/__root'
-import { Route as SellRouteImport } from './routes/sell'
+import { Route as VaultRouteImport } from './routes/vault'
 import { Route as RentRouteImport } from './routes/rent'
 import { Route as HistoryRouteImport } from './routes/history'
 import { Route as GamesRouteImport } from './routes/games'
@@ -28,10 +28,28 @@ import { Route as CarsSlugRouteImport } from './routes/cars.$slug'
 import { Route as BrandsBrandRouteImport } from './routes/brands.$brand'
 import { Route as BlogSlugRouteImport } from './routes/blog.$slug'
 import { Route as AuctionsSlugRouteImport } from './routes/auctions.$slug'
+import { Route as AdminVehiclesRouteImport } from './routes/admin.vehicles'
+import { Route as AdminUsersRouteImport } from './routes/admin.users'
+import { Route as AdminSettingsRouteImport } from './routes/admin.settings'
+import { Route as AdminRevenueRouteImport } from './routes/admin.revenue'
+import { Route as AdminRentalsRouteImport } from './routes/admin.rentals'
+import { Route as AdminPurposePagesRouteImport } from './routes/admin.purpose-pages'
+import { Route as AdminOrdersRouteImport } from './routes/admin.orders'
+import { Route as AdminNotificationsRouteImport } from './routes/admin.notifications'
+import { Route as AdminNewsletterRouteImport } from './routes/admin.newsletter'
+import { Route as AdminLogsRouteImport } from './routes/admin.logs'
+import { Route as AdminHomepageRouteImport } from './routes/admin.homepage'
+import { Route as AdminHistoryRouteImport } from './routes/admin.history'
+import { Route as AdminGamesRouteImport } from './routes/admin.games'
+import { Route as AdminBrandsRouteImport } from './routes/admin.brands'
+import { Route as AdminBlogRouteImport } from './routes/admin.blog'
+import { Route as AdminAuctionsRouteImport } from './routes/admin.auctions'
+import { Route as AdminAnalyticsRouteImport } from './routes/admin.analytics'
+import { Route as AdminAdsRouteImport } from './routes/admin.ads'
 
-const SellRoute = SellRouteImport.update({
-  id: '/sell',
-  path: '/sell',
+const VaultRoute = VaultRouteImport.update({
+  id: '/vault',
+  path: '/vault',
   getParentRoute: () => rootRouteImport,
 } as any)
 const RentRoute = RentRouteImport.update({
@@ -124,6 +142,96 @@ const AuctionsSlugRoute = AuctionsSlugRouteImport.update({
   path: '/$slug',
   getParentRoute: () => AuctionsRoute,
 } as any)
+const AdminVehiclesRoute = AdminVehiclesRouteImport.update({
+  id: '/admin/vehicles',
+  path: '/admin/vehicles',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const AdminUsersRoute = AdminUsersRouteImport.update({
+  id: '/admin/users',
+  path: '/admin/users',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const AdminSettingsRoute = AdminSettingsRouteImport.update({
+  id: '/admin/settings',
+  path: '/admin/settings',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const AdminRevenueRoute = AdminRevenueRouteImport.update({
+  id: '/admin/revenue',
+  path: '/admin/revenue',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const AdminRentalsRoute = AdminRentalsRouteImport.update({
+  id: '/admin/rentals',
+  path: '/admin/rentals',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const AdminPurposePagesRoute = AdminPurposePagesRouteImport.update({
+  id: '/admin/purpose-pages',
+  path: '/admin/purpose-pages',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const AdminOrdersRoute = AdminOrdersRouteImport.update({
+  id: '/admin/orders',
+  path: '/admin/orders',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const AdminNotificationsRoute = AdminNotificationsRouteImport.update({
+  id: '/admin/notifications',
+  path: '/admin/notifications',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const AdminNewsletterRoute = AdminNewsletterRouteImport.update({
+  id: '/admin/newsletter',
+  path: '/admin/newsletter',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const AdminLogsRoute = AdminLogsRouteImport.update({
+  id: '/admin/logs',
+  path: '/admin/logs',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const AdminHomepageRoute = AdminHomepageRouteImport.update({
+  id: '/admin/homepage',
+  path: '/admin/homepage',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const AdminHistoryRoute = AdminHistoryRouteImport.update({
+  id: '/admin/history',
+  path: '/admin/history',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const AdminGamesRoute = AdminGamesRouteImport.update({
+  id: '/admin/games',
+  path: '/admin/games',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const AdminBrandsRoute = AdminBrandsRouteImport.update({
+  id: '/admin/brands',
+  path: '/admin/brands',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const AdminBlogRoute = AdminBlogRouteImport.update({
+  id: '/admin/blog',
+  path: '/admin/blog',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const AdminAuctionsRoute = AdminAuctionsRouteImport.update({
+  id: '/admin/auctions',
+  path: '/admin/auctions',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const AdminAnalyticsRoute = AdminAnalyticsRouteImport.update({
+  id: '/admin/analytics',
+  path: '/admin/analytics',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const AdminAdsRoute = AdminAdsRouteImport.update({
+  id: '/admin/ads',
+  path: '/admin/ads',
+  getParentRoute: () => rootRouteImport,
+} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
@@ -135,7 +243,25 @@ export interface FileRoutesByFullPath {
   '/games': typeof GamesRouteWithChildren
   '/history': typeof HistoryRoute
   '/rent': typeof RentRouteWithChildren
-  '/sell': typeof SellRoute
+  '/vault': typeof VaultRoute
+  '/admin/ads': typeof AdminAdsRoute
+  '/admin/analytics': typeof AdminAnalyticsRoute
+  '/admin/auctions': typeof AdminAuctionsRoute
+  '/admin/blog': typeof AdminBlogRoute
+  '/admin/brands': typeof AdminBrandsRoute
+  '/admin/games': typeof AdminGamesRoute
+  '/admin/history': typeof AdminHistoryRoute
+  '/admin/homepage': typeof AdminHomepageRoute
+  '/admin/logs': typeof AdminLogsRoute
+  '/admin/newsletter': typeof AdminNewsletterRoute
+  '/admin/notifications': typeof AdminNotificationsRoute
+  '/admin/orders': typeof AdminOrdersRoute
+  '/admin/purpose-pages': typeof AdminPurposePagesRoute
+  '/admin/rentals': typeof AdminRentalsRoute
+  '/admin/revenue': typeof AdminRevenueRoute
+  '/admin/settings': typeof AdminSettingsRoute
+  '/admin/users': typeof AdminUsersRoute
+  '/admin/vehicles': typeof AdminVehiclesRoute
   '/auctions/$slug': typeof AuctionsSlugRoute
   '/blog/$slug': typeof BlogSlugRoute
   '/brands/$brand': typeof BrandsBrandRoute
@@ -156,7 +282,25 @@ export interface FileRoutesByTo {
   '/games': typeof GamesRouteWithChildren
   '/history': typeof HistoryRoute
   '/rent': typeof RentRouteWithChildren
-  '/sell': typeof SellRoute
+  '/vault': typeof VaultRoute
+  '/admin/ads': typeof AdminAdsRoute
+  '/admin/analytics': typeof AdminAnalyticsRoute
+  '/admin/auctions': typeof AdminAuctionsRoute
+  '/admin/blog': typeof AdminBlogRoute
+  '/admin/brands': typeof AdminBrandsRoute
+  '/admin/games': typeof AdminGamesRoute
+  '/admin/history': typeof AdminHistoryRoute
+  '/admin/homepage': typeof AdminHomepageRoute
+  '/admin/logs': typeof AdminLogsRoute
+  '/admin/newsletter': typeof AdminNewsletterRoute
+  '/admin/notifications': typeof AdminNotificationsRoute
+  '/admin/orders': typeof AdminOrdersRoute
+  '/admin/purpose-pages': typeof AdminPurposePagesRoute
+  '/admin/rentals': typeof AdminRentalsRoute
+  '/admin/revenue': typeof AdminRevenueRoute
+  '/admin/settings': typeof AdminSettingsRoute
+  '/admin/users': typeof AdminUsersRoute
+  '/admin/vehicles': typeof AdminVehiclesRoute
   '/auctions/$slug': typeof AuctionsSlugRoute
   '/blog/$slug': typeof BlogSlugRoute
   '/brands/$brand': typeof BrandsBrandRoute
@@ -178,7 +322,25 @@ export interface FileRoutesById {
   '/games': typeof GamesRouteWithChildren
   '/history': typeof HistoryRoute
   '/rent': typeof RentRouteWithChildren
-  '/sell': typeof SellRoute
+  '/vault': typeof VaultRoute
+  '/admin/ads': typeof AdminAdsRoute
+  '/admin/analytics': typeof AdminAnalyticsRoute
+  '/admin/auctions': typeof AdminAuctionsRoute
+  '/admin/blog': typeof AdminBlogRoute
+  '/admin/brands': typeof AdminBrandsRoute
+  '/admin/games': typeof AdminGamesRoute
+  '/admin/history': typeof AdminHistoryRoute
+  '/admin/homepage': typeof AdminHomepageRoute
+  '/admin/logs': typeof AdminLogsRoute
+  '/admin/newsletter': typeof AdminNewsletterRoute
+  '/admin/notifications': typeof AdminNotificationsRoute
+  '/admin/orders': typeof AdminOrdersRoute
+  '/admin/purpose-pages': typeof AdminPurposePagesRoute
+  '/admin/rentals': typeof AdminRentalsRoute
+  '/admin/revenue': typeof AdminRevenueRoute
+  '/admin/settings': typeof AdminSettingsRoute
+  '/admin/users': typeof AdminUsersRoute
+  '/admin/vehicles': typeof AdminVehiclesRoute
   '/auctions/$slug': typeof AuctionsSlugRoute
   '/blog/$slug': typeof BlogSlugRoute
   '/brands/$brand': typeof BrandsBrandRoute
@@ -201,7 +363,25 @@ export interface FileRouteTypes {
     | '/games'
     | '/history'
     | '/rent'
-    | '/sell'
+    | '/vault'
+    | '/admin/ads'
+    | '/admin/analytics'
+    | '/admin/auctions'
+    | '/admin/blog'
+    | '/admin/brands'
+    | '/admin/games'
+    | '/admin/history'
+    | '/admin/homepage'
+    | '/admin/logs'
+    | '/admin/newsletter'
+    | '/admin/notifications'
+    | '/admin/orders'
+    | '/admin/purpose-pages'
+    | '/admin/rentals'
+    | '/admin/revenue'
+    | '/admin/settings'
+    | '/admin/users'
+    | '/admin/vehicles'
     | '/auctions/$slug'
     | '/blog/$slug'
     | '/brands/$brand'
@@ -222,7 +402,25 @@ export interface FileRouteTypes {
     | '/games'
     | '/history'
     | '/rent'
-    | '/sell'
+    | '/vault'
+    | '/admin/ads'
+    | '/admin/analytics'
+    | '/admin/auctions'
+    | '/admin/blog'
+    | '/admin/brands'
+    | '/admin/games'
+    | '/admin/history'
+    | '/admin/homepage'
+    | '/admin/logs'
+    | '/admin/newsletter'
+    | '/admin/notifications'
+    | '/admin/orders'
+    | '/admin/purpose-pages'
+    | '/admin/rentals'
+    | '/admin/revenue'
+    | '/admin/settings'
+    | '/admin/users'
+    | '/admin/vehicles'
     | '/auctions/$slug'
     | '/blog/$slug'
     | '/brands/$brand'
@@ -243,7 +441,25 @@ export interface FileRouteTypes {
     | '/games'
     | '/history'
     | '/rent'
-    | '/sell'
+    | '/vault'
+    | '/admin/ads'
+    | '/admin/analytics'
+    | '/admin/auctions'
+    | '/admin/blog'
+    | '/admin/brands'
+    | '/admin/games'
+    | '/admin/history'
+    | '/admin/homepage'
+    | '/admin/logs'
+    | '/admin/newsletter'
+    | '/admin/notifications'
+    | '/admin/orders'
+    | '/admin/purpose-pages'
+    | '/admin/rentals'
+    | '/admin/revenue'
+    | '/admin/settings'
+    | '/admin/users'
+    | '/admin/vehicles'
     | '/auctions/$slug'
     | '/blog/$slug'
     | '/brands/$brand'
@@ -265,7 +481,25 @@ export interface RootRouteChildren {
   GamesRoute: typeof GamesRouteWithChildren
   HistoryRoute: typeof HistoryRoute
   RentRoute: typeof RentRouteWithChildren
-  SellRoute: typeof SellRoute
+  VaultRoute: typeof VaultRoute
+  AdminAdsRoute: typeof AdminAdsRoute
+  AdminAnalyticsRoute: typeof AdminAnalyticsRoute
+  AdminAuctionsRoute: typeof AdminAuctionsRoute
+  AdminBlogRoute: typeof AdminBlogRoute
+  AdminBrandsRoute: typeof AdminBrandsRoute
+  AdminGamesRoute: typeof AdminGamesRoute
+  AdminHistoryRoute: typeof AdminHistoryRoute
+  AdminHomepageRoute: typeof AdminHomepageRoute
+  AdminLogsRoute: typeof AdminLogsRoute
+  AdminNewsletterRoute: typeof AdminNewsletterRoute
+  AdminNotificationsRoute: typeof AdminNotificationsRoute
+  AdminOrdersRoute: typeof AdminOrdersRoute
+  AdminPurposePagesRoute: typeof AdminPurposePagesRoute
+  AdminRentalsRoute: typeof AdminRentalsRoute
+  AdminRevenueRoute: typeof AdminRevenueRoute
+  AdminSettingsRoute: typeof AdminSettingsRoute
+  AdminUsersRoute: typeof AdminUsersRoute
+  AdminVehiclesRoute: typeof AdminVehiclesRoute
   BrandsBrandRoute: typeof BrandsBrandRoute
   CarsSlugRoute: typeof CarsSlugRoute
   PurposeSlugRoute: typeof PurposeSlugRoute
@@ -274,11 +508,11 @@ export interface RootRouteChildren {
 
 declare module '@tanstack/react-router' {
   interface FileRoutesByPath {
-    '/sell': {
-      id: '/sell'
-      path: '/sell'
-      fullPath: '/sell'
-      preLoaderRoute: typeof SellRouteImport
+    '/vault': {
+      id: '/vault'
+      path: '/vault'
+      fullPath: '/vault'
+      preLoaderRoute: typeof VaultRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/rent': {
@@ -407,6 +641,132 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof AuctionsSlugRouteImport
       parentRoute: typeof AuctionsRoute
     }
+    '/admin/vehicles': {
+      id: '/admin/vehicles'
+      path: '/admin/vehicles'
+      fullPath: '/admin/vehicles'
+      preLoaderRoute: typeof AdminVehiclesRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/admin/users': {
+      id: '/admin/users'
+      path: '/admin/users'
+      fullPath: '/admin/users'
+      preLoaderRoute: typeof AdminUsersRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/admin/settings': {
+      id: '/admin/settings'
+      path: '/admin/settings'
+      fullPath: '/admin/settings'
+      preLoaderRoute: typeof AdminSettingsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/admin/revenue': {
+      id: '/admin/revenue'
+      path: '/admin/revenue'
+      fullPath: '/admin/revenue'
+      preLoaderRoute: typeof AdminRevenueRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/admin/rentals': {
+      id: '/admin/rentals'
+      path: '/admin/rentals'
+      fullPath: '/admin/rentals'
+      preLoaderRoute: typeof AdminRentalsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/admin/purpose-pages': {
+      id: '/admin/purpose-pages'
+      path: '/admin/purpose-pages'
+      fullPath: '/admin/purpose-pages'
+      preLoaderRoute: typeof AdminPurposePagesRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/admin/orders': {
+      id: '/admin/orders'
+      path: '/admin/orders'
+      fullPath: '/admin/orders'
+      preLoaderRoute: typeof AdminOrdersRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/admin/notifications': {
+      id: '/admin/notifications'
+      path: '/admin/notifications'
+      fullPath: '/admin/notifications'
+      preLoaderRoute: typeof AdminNotificationsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/admin/newsletter': {
+      id: '/admin/newsletter'
+      path: '/admin/newsletter'
+      fullPath: '/admin/newsletter'
+      preLoaderRoute: typeof AdminNewsletterRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/admin/logs': {
+      id: '/admin/logs'
+      path: '/admin/logs'
+      fullPath: '/admin/logs'
+      preLoaderRoute: typeof AdminLogsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/admin/homepage': {
+      id: '/admin/homepage'
+      path: '/admin/homepage'
+      fullPath: '/admin/homepage'
+      preLoaderRoute: typeof AdminHomepageRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/admin/history': {
+      id: '/admin/history'
+      path: '/admin/history'
+      fullPath: '/admin/history'
+      preLoaderRoute: typeof AdminHistoryRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/admin/games': {
+      id: '/admin/games'
+      path: '/admin/games'
+      fullPath: '/admin/games'
+      preLoaderRoute: typeof AdminGamesRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/admin/brands': {
+      id: '/admin/brands'
+      path: '/admin/brands'
+      fullPath: '/admin/brands'
+      preLoaderRoute: typeof AdminBrandsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/admin/blog': {
+      id: '/admin/blog'
+      path: '/admin/blog'
+      fullPath: '/admin/blog'
+      preLoaderRoute: typeof AdminBlogRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/admin/auctions': {
+      id: '/admin/auctions'
+      path: '/admin/auctions'
+      fullPath: '/admin/auctions'
+      preLoaderRoute: typeof AdminAuctionsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/admin/analytics': {
+      id: '/admin/analytics'
+      path: '/admin/analytics'
+      fullPath: '/admin/analytics'
+      preLoaderRoute: typeof AdminAnalyticsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/admin/ads': {
+      id: '/admin/ads'
+      path: '/admin/ads'
+      fullPath: '/admin/ads'
+      preLoaderRoute: typeof AdminAdsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
   }
 }
 
@@ -464,7 +824,25 @@ const rootRouteChildren: RootRouteChildren = {
   GamesRoute: GamesRouteWithChildren,
   HistoryRoute: HistoryRoute,
   RentRoute: RentRouteWithChildren,
-  SellRoute: SellRoute,
+  VaultRoute: VaultRoute,
+  AdminAdsRoute: AdminAdsRoute,
+  AdminAnalyticsRoute: AdminAnalyticsRoute,
+  AdminAuctionsRoute: AdminAuctionsRoute,
+  AdminBlogRoute: AdminBlogRoute,
+  AdminBrandsRoute: AdminBrandsRoute,
+  AdminGamesRoute: AdminGamesRoute,
+  AdminHistoryRoute: AdminHistoryRoute,
+  AdminHomepageRoute: AdminHomepageRoute,
+  AdminLogsRoute: AdminLogsRoute,
+  AdminNewsletterRoute: AdminNewsletterRoute,
+  AdminNotificationsRoute: AdminNotificationsRoute,
+  AdminOrdersRoute: AdminOrdersRoute,
+  AdminPurposePagesRoute: AdminPurposePagesRoute,
+  AdminRentalsRoute: AdminRentalsRoute,
+  AdminRevenueRoute: AdminRevenueRoute,
+  AdminSettingsRoute: AdminSettingsRoute,
+  AdminUsersRoute: AdminUsersRoute,
+  AdminVehiclesRoute: AdminVehiclesRoute,
   BrandsBrandRoute: BrandsBrandRoute,
   CarsSlugRoute: CarsSlugRoute,
   PurposeSlugRoute: PurposeSlugRoute,
