@@ -9,38 +9,334 @@
 // Additionally, you should also exclude this file from your linter and/or formatter to prevent it from being checked or modified.
 
 import { Route as rootRouteImport } from './routes/__root'
+import { Route as SellRouteImport } from './routes/sell'
+import { Route as RentRouteImport } from './routes/rent'
+import { Route as HistoryRouteImport } from './routes/history'
+import { Route as GamesRouteImport } from './routes/games'
+import { Route as FleetRouteImport } from './routes/fleet'
+import { Route as BuyRouteImport } from './routes/buy'
+import { Route as BlogRouteImport } from './routes/blog'
+import { Route as AuctionsRouteImport } from './routes/auctions'
+import { Route as AccountRouteImport } from './routes/account'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as AdminIndexRouteImport } from './routes/admin.index'
+import { Route as RentSlugRouteImport } from './routes/rent.$slug'
+import { Route as PurposeSlugRouteImport } from './routes/purpose.$slug'
+import { Route as GamesGuessTheCarRouteImport } from './routes/games.guess-the-car'
+import { Route as GamesEngineSoundRouteImport } from './routes/games.engine-sound'
+import { Route as CarsSlugRouteImport } from './routes/cars.$slug'
+import { Route as BrandsBrandRouteImport } from './routes/brands.$brand'
+import { Route as BlogSlugRouteImport } from './routes/blog.$slug'
+import { Route as AuctionsSlugRouteImport } from './routes/auctions.$slug'
 
+const SellRoute = SellRouteImport.update({
+  id: '/sell',
+  path: '/sell',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const RentRoute = RentRouteImport.update({
+  id: '/rent',
+  path: '/rent',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const HistoryRoute = HistoryRouteImport.update({
+  id: '/history',
+  path: '/history',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const GamesRoute = GamesRouteImport.update({
+  id: '/games',
+  path: '/games',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const FleetRoute = FleetRouteImport.update({
+  id: '/fleet',
+  path: '/fleet',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const BuyRoute = BuyRouteImport.update({
+  id: '/buy',
+  path: '/buy',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const BlogRoute = BlogRouteImport.update({
+  id: '/blog',
+  path: '/blog',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const AuctionsRoute = AuctionsRouteImport.update({
+  id: '/auctions',
+  path: '/auctions',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const AccountRoute = AccountRouteImport.update({
+  id: '/account',
+  path: '/account',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
   getParentRoute: () => rootRouteImport,
 } as any)
+const AdminIndexRoute = AdminIndexRouteImport.update({
+  id: '/admin/',
+  path: '/admin/',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const RentSlugRoute = RentSlugRouteImport.update({
+  id: '/$slug',
+  path: '/$slug',
+  getParentRoute: () => RentRoute,
+} as any)
+const PurposeSlugRoute = PurposeSlugRouteImport.update({
+  id: '/purpose/$slug',
+  path: '/purpose/$slug',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const GamesGuessTheCarRoute = GamesGuessTheCarRouteImport.update({
+  id: '/guess-the-car',
+  path: '/guess-the-car',
+  getParentRoute: () => GamesRoute,
+} as any)
+const GamesEngineSoundRoute = GamesEngineSoundRouteImport.update({
+  id: '/engine-sound',
+  path: '/engine-sound',
+  getParentRoute: () => GamesRoute,
+} as any)
+const CarsSlugRoute = CarsSlugRouteImport.update({
+  id: '/cars/$slug',
+  path: '/cars/$slug',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const BrandsBrandRoute = BrandsBrandRouteImport.update({
+  id: '/brands/$brand',
+  path: '/brands/$brand',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const BlogSlugRoute = BlogSlugRouteImport.update({
+  id: '/$slug',
+  path: '/$slug',
+  getParentRoute: () => BlogRoute,
+} as any)
+const AuctionsSlugRoute = AuctionsSlugRouteImport.update({
+  id: '/$slug',
+  path: '/$slug',
+  getParentRoute: () => AuctionsRoute,
+} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/account': typeof AccountRoute
+  '/auctions': typeof AuctionsRouteWithChildren
+  '/blog': typeof BlogRouteWithChildren
+  '/buy': typeof BuyRoute
+  '/fleet': typeof FleetRoute
+  '/games': typeof GamesRouteWithChildren
+  '/history': typeof HistoryRoute
+  '/rent': typeof RentRouteWithChildren
+  '/sell': typeof SellRoute
+  '/auctions/$slug': typeof AuctionsSlugRoute
+  '/blog/$slug': typeof BlogSlugRoute
+  '/brands/$brand': typeof BrandsBrandRoute
+  '/cars/$slug': typeof CarsSlugRoute
+  '/games/engine-sound': typeof GamesEngineSoundRoute
+  '/games/guess-the-car': typeof GamesGuessTheCarRoute
+  '/purpose/$slug': typeof PurposeSlugRoute
+  '/rent/$slug': typeof RentSlugRoute
+  '/admin/': typeof AdminIndexRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/account': typeof AccountRoute
+  '/auctions': typeof AuctionsRouteWithChildren
+  '/blog': typeof BlogRouteWithChildren
+  '/buy': typeof BuyRoute
+  '/fleet': typeof FleetRoute
+  '/games': typeof GamesRouteWithChildren
+  '/history': typeof HistoryRoute
+  '/rent': typeof RentRouteWithChildren
+  '/sell': typeof SellRoute
+  '/auctions/$slug': typeof AuctionsSlugRoute
+  '/blog/$slug': typeof BlogSlugRoute
+  '/brands/$brand': typeof BrandsBrandRoute
+  '/cars/$slug': typeof CarsSlugRoute
+  '/games/engine-sound': typeof GamesEngineSoundRoute
+  '/games/guess-the-car': typeof GamesGuessTheCarRoute
+  '/purpose/$slug': typeof PurposeSlugRoute
+  '/rent/$slug': typeof RentSlugRoute
+  '/admin': typeof AdminIndexRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
+  '/account': typeof AccountRoute
+  '/auctions': typeof AuctionsRouteWithChildren
+  '/blog': typeof BlogRouteWithChildren
+  '/buy': typeof BuyRoute
+  '/fleet': typeof FleetRoute
+  '/games': typeof GamesRouteWithChildren
+  '/history': typeof HistoryRoute
+  '/rent': typeof RentRouteWithChildren
+  '/sell': typeof SellRoute
+  '/auctions/$slug': typeof AuctionsSlugRoute
+  '/blog/$slug': typeof BlogSlugRoute
+  '/brands/$brand': typeof BrandsBrandRoute
+  '/cars/$slug': typeof CarsSlugRoute
+  '/games/engine-sound': typeof GamesEngineSoundRoute
+  '/games/guess-the-car': typeof GamesGuessTheCarRoute
+  '/purpose/$slug': typeof PurposeSlugRoute
+  '/rent/$slug': typeof RentSlugRoute
+  '/admin/': typeof AdminIndexRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/'
+  fullPaths:
+    | '/'
+    | '/account'
+    | '/auctions'
+    | '/blog'
+    | '/buy'
+    | '/fleet'
+    | '/games'
+    | '/history'
+    | '/rent'
+    | '/sell'
+    | '/auctions/$slug'
+    | '/blog/$slug'
+    | '/brands/$brand'
+    | '/cars/$slug'
+    | '/games/engine-sound'
+    | '/games/guess-the-car'
+    | '/purpose/$slug'
+    | '/rent/$slug'
+    | '/admin/'
   fileRoutesByTo: FileRoutesByTo
-  to: '/'
-  id: '__root__' | '/'
+  to:
+    | '/'
+    | '/account'
+    | '/auctions'
+    | '/blog'
+    | '/buy'
+    | '/fleet'
+    | '/games'
+    | '/history'
+    | '/rent'
+    | '/sell'
+    | '/auctions/$slug'
+    | '/blog/$slug'
+    | '/brands/$brand'
+    | '/cars/$slug'
+    | '/games/engine-sound'
+    | '/games/guess-the-car'
+    | '/purpose/$slug'
+    | '/rent/$slug'
+    | '/admin'
+  id:
+    | '__root__'
+    | '/'
+    | '/account'
+    | '/auctions'
+    | '/blog'
+    | '/buy'
+    | '/fleet'
+    | '/games'
+    | '/history'
+    | '/rent'
+    | '/sell'
+    | '/auctions/$slug'
+    | '/blog/$slug'
+    | '/brands/$brand'
+    | '/cars/$slug'
+    | '/games/engine-sound'
+    | '/games/guess-the-car'
+    | '/purpose/$slug'
+    | '/rent/$slug'
+    | '/admin/'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  AccountRoute: typeof AccountRoute
+  AuctionsRoute: typeof AuctionsRouteWithChildren
+  BlogRoute: typeof BlogRouteWithChildren
+  BuyRoute: typeof BuyRoute
+  FleetRoute: typeof FleetRoute
+  GamesRoute: typeof GamesRouteWithChildren
+  HistoryRoute: typeof HistoryRoute
+  RentRoute: typeof RentRouteWithChildren
+  SellRoute: typeof SellRoute
+  BrandsBrandRoute: typeof BrandsBrandRoute
+  CarsSlugRoute: typeof CarsSlugRoute
+  PurposeSlugRoute: typeof PurposeSlugRoute
+  AdminIndexRoute: typeof AdminIndexRoute
 }
 
 declare module '@tanstack/react-router' {
   interface FileRoutesByPath {
+    '/sell': {
+      id: '/sell'
+      path: '/sell'
+      fullPath: '/sell'
+      preLoaderRoute: typeof SellRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/rent': {
+      id: '/rent'
+      path: '/rent'
+      fullPath: '/rent'
+      preLoaderRoute: typeof RentRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/history': {
+      id: '/history'
+      path: '/history'
+      fullPath: '/history'
+      preLoaderRoute: typeof HistoryRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/games': {
+      id: '/games'
+      path: '/games'
+      fullPath: '/games'
+      preLoaderRoute: typeof GamesRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/fleet': {
+      id: '/fleet'
+      path: '/fleet'
+      fullPath: '/fleet'
+      preLoaderRoute: typeof FleetRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/buy': {
+      id: '/buy'
+      path: '/buy'
+      fullPath: '/buy'
+      preLoaderRoute: typeof BuyRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/blog': {
+      id: '/blog'
+      path: '/blog'
+      fullPath: '/blog'
+      preLoaderRoute: typeof BlogRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/auctions': {
+      id: '/auctions'
+      path: '/auctions'
+      fullPath: '/auctions'
+      preLoaderRoute: typeof AuctionsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/account': {
+      id: '/account'
+      path: '/account'
+      fullPath: '/account'
+      preLoaderRoute: typeof AccountRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/': {
       id: '/'
       path: '/'
@@ -48,12 +344,142 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof IndexRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/admin/': {
+      id: '/admin/'
+      path: '/admin'
+      fullPath: '/admin/'
+      preLoaderRoute: typeof AdminIndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/rent/$slug': {
+      id: '/rent/$slug'
+      path: '/$slug'
+      fullPath: '/rent/$slug'
+      preLoaderRoute: typeof RentSlugRouteImport
+      parentRoute: typeof RentRoute
+    }
+    '/purpose/$slug': {
+      id: '/purpose/$slug'
+      path: '/purpose/$slug'
+      fullPath: '/purpose/$slug'
+      preLoaderRoute: typeof PurposeSlugRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/games/guess-the-car': {
+      id: '/games/guess-the-car'
+      path: '/guess-the-car'
+      fullPath: '/games/guess-the-car'
+      preLoaderRoute: typeof GamesGuessTheCarRouteImport
+      parentRoute: typeof GamesRoute
+    }
+    '/games/engine-sound': {
+      id: '/games/engine-sound'
+      path: '/engine-sound'
+      fullPath: '/games/engine-sound'
+      preLoaderRoute: typeof GamesEngineSoundRouteImport
+      parentRoute: typeof GamesRoute
+    }
+    '/cars/$slug': {
+      id: '/cars/$slug'
+      path: '/cars/$slug'
+      fullPath: '/cars/$slug'
+      preLoaderRoute: typeof CarsSlugRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/brands/$brand': {
+      id: '/brands/$brand'
+      path: '/brands/$brand'
+      fullPath: '/brands/$brand'
+      preLoaderRoute: typeof BrandsBrandRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/blog/$slug': {
+      id: '/blog/$slug'
+      path: '/$slug'
+      fullPath: '/blog/$slug'
+      preLoaderRoute: typeof BlogSlugRouteImport
+      parentRoute: typeof BlogRoute
+    }
+    '/auctions/$slug': {
+      id: '/auctions/$slug'
+      path: '/$slug'
+      fullPath: '/auctions/$slug'
+      preLoaderRoute: typeof AuctionsSlugRouteImport
+      parentRoute: typeof AuctionsRoute
+    }
   }
 }
 
+interface AuctionsRouteChildren {
+  AuctionsSlugRoute: typeof AuctionsSlugRoute
+}
+
+const AuctionsRouteChildren: AuctionsRouteChildren = {
+  AuctionsSlugRoute: AuctionsSlugRoute,
+}
+
+const AuctionsRouteWithChildren = AuctionsRoute._addFileChildren(
+  AuctionsRouteChildren,
+)
+
+interface BlogRouteChildren {
+  BlogSlugRoute: typeof BlogSlugRoute
+}
+
+const BlogRouteChildren: BlogRouteChildren = {
+  BlogSlugRoute: BlogSlugRoute,
+}
+
+const BlogRouteWithChildren = BlogRoute._addFileChildren(BlogRouteChildren)
+
+interface GamesRouteChildren {
+  GamesEngineSoundRoute: typeof GamesEngineSoundRoute
+  GamesGuessTheCarRoute: typeof GamesGuessTheCarRoute
+}
+
+const GamesRouteChildren: GamesRouteChildren = {
+  GamesEngineSoundRoute: GamesEngineSoundRoute,
+  GamesGuessTheCarRoute: GamesGuessTheCarRoute,
+}
+
+const GamesRouteWithChildren = GamesRoute._addFileChildren(GamesRouteChildren)
+
+interface RentRouteChildren {
+  RentSlugRoute: typeof RentSlugRoute
+}
+
+const RentRouteChildren: RentRouteChildren = {
+  RentSlugRoute: RentSlugRoute,
+}
+
+const RentRouteWithChildren = RentRoute._addFileChildren(RentRouteChildren)
+
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  AccountRoute: AccountRoute,
+  AuctionsRoute: AuctionsRouteWithChildren,
+  BlogRoute: BlogRouteWithChildren,
+  BuyRoute: BuyRoute,
+  FleetRoute: FleetRoute,
+  GamesRoute: GamesRouteWithChildren,
+  HistoryRoute: HistoryRoute,
+  RentRoute: RentRouteWithChildren,
+  SellRoute: SellRoute,
+  BrandsBrandRoute: BrandsBrandRoute,
+  CarsSlugRoute: CarsSlugRoute,
+  PurposeSlugRoute: PurposeSlugRoute,
+  AdminIndexRoute: AdminIndexRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
   ._addFileTypes<FileRouteTypes>()
+
+import type { getRouter } from './router.tsx'
+import type { startInstance } from './start.ts'
+declare module '@tanstack/react-start' {
+  interface Register {
+    ssr: true
+    router: Awaited<ReturnType<typeof getRouter>>
+    config: Awaited<ReturnType<typeof startInstance.getOptions>>
+  }
+}

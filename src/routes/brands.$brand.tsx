@@ -7,7 +7,7 @@ export const Route = createFileRoute("/brands/$brand")({ component: BrandPage })
 
 function BrandPage() {
   const { brand } = Route.useParams();
-  const brandName = brand.replace(/-/g, " ").replace(/\b\w/g, (c) => c.toUpperCase());
+  const brandName = brand.replace(/-/g, " ").replace(/\b\w/g, (c: string) => c.toUpperCase());
   const cars = VEHICLES.filter((v) => v.brand.toLowerCase().includes(brand.toLowerCase())).length > 0
     ? VEHICLES.filter((v) => v.brand.toLowerCase().includes(brand.toLowerCase()))
     : VEHICLES.slice(0, 6);
